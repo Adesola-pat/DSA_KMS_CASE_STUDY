@@ -1,7 +1,27 @@
-# KMS_CASE_STUDY
+# DSA PROJECT (KMS_CASE_STUDY)
+---
+## DATA ANALYSIS
+---
+### OUTLINE
+----
+[Project Overview](#project-overview)
+
+[Dataset Overview](#dataset-overview)
+
+[Exploratory Data Analysis](#exploratory-data-analysis)
+
+[Tools Used](#tools-used)
+
+[Author](#author)
+
+## Project Overview
+---
 Data Analysis of Kultra Mega Stores (KMS) inventory using Structured Query Language (SQL) to solve the Case Scenarios.
 This repository contains a complete SQL analysis of a retail dataset from **KMS**, focusing on sales, customers, shipping, and profitability insights using MIcrosoft SQL Server (SSMS)
+---
+
 ## Dataset Overview
+---
 The dataset [KMS Sql Case Study.csv](https://github.com/user-attachments/files/21054975/KMS.Sql.Case.Study.csv) includes:
 - Order and Shipping details
 - Customer segmentation
@@ -9,7 +29,8 @@ The dataset [KMS Sql Case Study.csv](https://github.com/user-attachments/files/2
 - Regional and provincial data
 - Financial details such as sales, profit, and shipping cost
 
-## Business Questions Answered
+## Exploratory Data Analysis
+This has to do with answering the case scenario questions while using some functions or lines of code in SQl
 ### Case Scenario 1
 1. Which category has the highest sales?
 2. What are the top 3 and bottom 3 regions in terms of sales?
@@ -28,8 +49,7 @@ The dataset [KMS Sql Case Study.csv](https://github.com/user-attachments/files/2
 
 ---
 
-SQL
-'''
+```SQL
 -- Creating a database
 CREATE DATABASE kms_sales_db;
 USE kms_sales_db;
@@ -162,7 +182,7 @@ SELECT  [Order_Priority], [Ship_Mode],
 FROM KMS_Sql_Case_Study
 GROUP BY  [Order_Priority], [Ship_Mode]
 ORDER BY [Order_Priority], Avg_Shipping_cost DESC;
-'''
+```
 
 ## 🛠 Tools Used
 
