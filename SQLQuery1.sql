@@ -27,7 +27,7 @@ Product_BAse_Margin FLOAT,
 Ship_Date DATE
 )
 -- This query is to confirm if the table has been imported successfully
-SELECT TOP 10 * FROM KMS_Sql_Case_Study
+SELECT TOP 10 * FROM KMS_Sql_Case_Study   
 
 -- CASE SCENARIO 1
 -- WHICH CATEGORY HAS THE HIGHEST SALES?
@@ -122,7 +122,22 @@ GROUP BY [Customer_Name]
 ORDER BY Total_Profit DESC;
 
 -- Which customer returned items, and what segment do they belong to?
---There's no column for the returned Status
+--- first alter the initial table and add the column for the order status
+ALTER TABLE KMS_Sql_Case_Study
+ADD Order_Status VARCHAR(50);
+
+--- after importing the file for the order status then merge the two tables
+
+MERGE INTO KMS_Sql_Case_Study AS target
+USING [dbo].[Order_Status] AS source
+ON target.order_id = source.order_id
+WHEN MATCHED THEN
+	UPDATE SET target.Order_ID = source.Order_ID;
+
+	select * from KMS_Sql_Case_Study
+
+	---to check the return status
+
 --- was shipping cost appropriately spent based on order priority?
 SELECT  [Order_Priority], [Ship_Mode],
 	COUNT(*) AS Num_Orders,
